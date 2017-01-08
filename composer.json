@@ -22,6 +22,13 @@
         }
     },
     "description": "More info available on: http://pear.php.net/package/Structures_DataGrid",
+    "replace": {
+        "pear-pear.php.net/Structures_DataGrid" : "0.*",
+        "pear-pear.php.net/Structures_DataGrid_DataSource_DataObject": "0.*",
+        "pear-pear.php.net/Structures_DataGrid_DataSource_Array": ">=0.*",
+        "pear-pear.php.net/Structures_DataGrid_Renderer_HTMLTable": ">=0.*",
+        "pear-pear.php.net/Structures_DataGrid_Renderer_Pager": ">=0.*"
+    },
     "include-path": [
         "./"
     ],
