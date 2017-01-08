@@ -25,9 +25,9 @@
     "replace": {
         "pear-pear.php.net/Structures_DataGrid" : "0.*",
         "pear-pear.php.net/Structures_DataGrid_DataSource_DataObject": "0.*",
-        "pear-pear.php.net/Structures_DataGrid_DataSource_Array": ">=0.*",
-        "pear-pear.php.net/Structures_DataGrid_Renderer_HTMLTable": ">=0.*",
-        "pear-pear.php.net/Structures_DataGrid_Renderer_Pager": ">=0.*"
+        "pear-pear.php.net/Structures_DataGrid_DataSource_Array": "0.*",
+        "pear-pear.php.net/Structures_DataGrid_Renderer_HTMLTable": "0.*",
+        "pear-pear.php.net/Structures_DataGrid_Renderer_Pager": "0.*"
     },
     "include-path": [
         "./"
