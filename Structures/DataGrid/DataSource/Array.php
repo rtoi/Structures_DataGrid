@@ -92,11 +92,16 @@ class Structures_DataGrid_DataSource_Array
      */
     var $_ar = array();
      
-    function Structures_DataGrid_DataSource_Array()
+    function __construct()
     {
-        parent::Structures_DataGrid_DataSource();
+        parent::__construct();
         $this->_addDefaultOptions(array('natsort' => false));
         $this->_setFeatures(array('multiSort' => true));
+    }
+
+    function Structures_DataGrid_DataSource_Array()
+    {
+        return self::__construct();
     }
 
     /**

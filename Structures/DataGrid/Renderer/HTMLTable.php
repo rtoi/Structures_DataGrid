@@ -128,7 +128,7 @@ class Structures_DataGrid_Renderer_HTMLTable extends Structures_DataGrid_Rendere
      *
      * @access  public
      */
-    function Structures_DataGrid_Renderer_HTMLTable()
+    function __construct()
     {
         parent::Structures_DataGrid_Renderer();
         $this->_addDefaultOptions(
@@ -153,6 +153,11 @@ class Structures_DataGrid_Renderer_HTMLTable extends Structures_DataGrid_Rendere
         );
     }
 
+    function Structures_DataGrid_Renderer_HTMLTable()
+    {
+        return self::__construct();
+    }
+    
     /**
      * Attach an already instantiated HTML_Table object
      *

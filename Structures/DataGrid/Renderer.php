@@ -378,7 +378,7 @@ class Structures_DataGrid_Renderer
      * @access  public
      * @see Structures_DataGrid_Renderer::_addDefaultOptions()
      */
-    function Structures_DataGrid_Renderer()
+    function __construct()
     {
         $this->_options = array(
             
@@ -413,6 +413,11 @@ class Structures_DataGrid_Renderer
             }
         }
 
+    }
+
+    function Structures_DataGrid_Renderer()
+    {
+        return self::__construct();
     }
 
     /**
