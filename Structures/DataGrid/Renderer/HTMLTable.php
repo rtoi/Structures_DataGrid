@@ -130,7 +130,7 @@ class Structures_DataGrid_Renderer_HTMLTable extends Structures_DataGrid_Rendere
      */
     function __construct()
     {
-        parent::Structures_DataGrid_Renderer();
+        parent::__construct();
         $this->_addDefaultOptions(
             array(
                 'evenRowAttributes'   => array(),
@@ -157,7 +157,7 @@ class Structures_DataGrid_Renderer_HTMLTable extends Structures_DataGrid_Rendere
     {
         return self::__construct();
     }
-    
+
     /**
      * Attach an already instantiated HTML_Table object
      *
