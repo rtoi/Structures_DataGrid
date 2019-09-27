@@ -169,9 +169,9 @@ class Structures_DataGrid_DataSource_DataObject
      * @param object DB_DataObject
      * @access public
      */
-    function Structures_DataGrid_DataSource_DataObject()
+    function __construct()
     {
-        parent::Structures_DataGrid_DataSource();
+        parent::__construct();
 
         $this->_addDefaultOptions(array(
                     'use_private_vars' => false,
