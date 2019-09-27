@@ -44,10 +44,8 @@
  * @license  http://opensource.org/licenses/bsd-license.php New BSD License
  */
 
-
-require_once 'PEAR.php';
-
-require_once 'Structures/DataGrid/Column.php';
+!class_exists('PEAR') && require_once 'PEAR.php';
+!class_exists('Structures_DataGrid_Column.php') && require_once 'Structures/DataGrid/Column.php';
 
 // Rendering Drivers
 define('DATAGRID_RENDER_TABLE',    'HTMLTable');
