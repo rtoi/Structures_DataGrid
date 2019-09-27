@@ -138,7 +138,7 @@ class Structures_DataGrid_Column
      * @see setFormatter()
      * @access  public
      */
-    function Structures_DataGrid_Column($label, 
+    function __construct($label, 
                                         $field = null,
                                         $orderBy = null, 
                                         $attributes = array(),
