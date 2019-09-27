@@ -97,7 +97,7 @@ class Structures_DataGrid_DataSource
      * Constructor
      *
      */
-    function Structures_DataGrid_DataSource()
+    function __construct()
     {
         return self::__construct();
     }
