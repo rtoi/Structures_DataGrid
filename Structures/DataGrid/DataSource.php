@@ -99,11 +99,6 @@ class Structures_DataGrid_DataSource
      */
     function __construct()
     {
-        return self::__construct();
-    }
-
-    function __construct()
-    {
         $this->_options = array('generate_columns' => false,
                                 'labels'           => array(),
                                 'fields'           => array(),
