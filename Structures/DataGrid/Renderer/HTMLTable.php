@@ -44,8 +44,8 @@
  * @license  http://opensource.org/licenses/bsd-license.php New BSD License
  */
 
-!class_exists('Structures/DataGrid/Renderer.php') && require_once 'Structures/DataGrid/Renderer.php';
-!class_exists('HTML/Table.php') && require_once 'HTML/Table.php';
+!class_exists('Structures_DataGrid_Renderer') && require_once 'Structures/DataGrid/Renderer.php';
+!class_exists('HTML_Table') && require_once 'HTML/Table.php';
 
 /**
  * HTML Table Rendering Driver
