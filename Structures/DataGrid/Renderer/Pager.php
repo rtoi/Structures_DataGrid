@@ -109,7 +109,7 @@ class Structures_DataGrid_Renderer_Pager extends Structures_DataGrid_Renderer
      *
      * @access  public
      */
-    function Structures_DataGrid_Renderer_Pager()
+    function __construct()
     {
         parent::Structures_DataGrid_Renderer();
         $this->_addDefaultOptions(
