@@ -302,7 +302,7 @@ class Structures_DataGrid
      * @return void
      * @access public
      */
-    function Structures_DataGrid($limit = null, $page = null,
+    function __construct($limit = null, $page = null,
                                  $rendererType = null)
     {
         // Set the defined rowlimit
