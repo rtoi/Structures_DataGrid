@@ -364,7 +364,7 @@ class Structures_DataGrid
      *
      * @access private
      */
-    function classExists($className)
+    static function classExists($className)
     {
         if (version_compare(phpversion(), "5.0", ">=")) {
             return class_exists($className, false);
@@ -380,7 +380,7 @@ class Structures_DataGrid
      * @return object The driver object or a PEAR_Error
      * @static
      */
-    function loadDriver($className)
+    static function loadDriver($className)
     {
         if (!Structures_DataGrid::classExists($className)) {
             $fileName = str_replace('_', DIRECTORY_SEPARATOR, $className) . '.php';
