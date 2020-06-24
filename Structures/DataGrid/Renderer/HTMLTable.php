@@ -380,8 +380,9 @@ class Structures_DataGrid_Renderer_HTMLTable extends Structures_DataGrid_Rendere
                 
                 // Determine next sort direction and current sort icon
                 reset($this->_currentSort);
-                if (list($currentField,$currentDirection) = each($this->_currentSort)
-                    and $currentField == $field) {
+                $currentField = key($this->_currentSort);
+                $currentDirection = current($this->_currentSort);
+                if ( $currentField == $field) {
                     if ($currentDirection == 'ASC') {
                         $icon = $this->_options['sortIconASC'];
                         $cssClass = $this->_options['classASC'];
