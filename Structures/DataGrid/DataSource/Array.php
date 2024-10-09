@@ -229,8 +229,8 @@ class Structures_DataGrid_DataSource_Array
         }
 
         if ($args) {
-            $args[] = $this->_ar;
-            array_multisort($args);
+            $args[] =& $this->_ar;
+            array_multisort(...$args);
         }
     }
 }
