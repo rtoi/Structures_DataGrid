@@ -97,7 +97,9 @@ class Structures_DataGrid_Column
     var $attribs;
 
     /**
-     * The value to be used if a cell is empty
+     * The value to be used if a cell is empty.
+     * This value is used after the formatter, if one is defined 
+     * for this column.  
      * @var string
      */
     var $autoFillValue;
@@ -115,6 +117,15 @@ class Structures_DataGrid_Column
      * @access  private
      */
     var $formatterArgs;
+    
+    /**
+     * The value the formatter will output if a cell value 
+     * is missing/null.
+     * 
+     * @var     string
+     * @access  private
+     */
+    var $missingValue = "";
 
     /**
      * Constructor
@@ -133,6 +144,11 @@ class Structures_DataGrid_Column
      * @param   array       $formatterArgs  Associative array of arguments 
      *                                      passed as second argument to the 
      *                                      formatter callback
+     * @param  string       $missingValue   Formatter will output this value if 
+     *                                      the cell value is missing/null.
+     *                                      This defaults to an empty string.
+     *                                      To set $missingValue to null, method
+     *                                      setMissingValue() has to be used.
      * @see http://www.php.net/manual/en/language.pseudo-types.php
      * @see Structures_DataGrid::addColumn()
      * @see setFormatter()
@@ -144,7 +160,8 @@ class Structures_DataGrid_Column
                                         $attributes = array(),
                                         $autoFillValue = null,
                                         $formatter = null,
-                                        $formatterArgs = array())
+                                        $formatterArgs = array(),
+                                        $missingValue = null)
     {
         $this->id = uniqid('_');
         $this->columnName = $label;
@@ -154,6 +171,9 @@ class Structures_DataGrid_Column
         $this->autoFillValue = $autoFillValue;
         if (!is_null($formatter)) {
             $this->setFormatter($formatter, $formatterArgs);
+        };
+        if (isset($missingValue)) {
+            $this->missingValue = $missingValue;
         }
     }
 
@@ -309,6 +329,34 @@ class Structures_DataGrid_Column
     }
 
     /**
+     * Get missing value
+     * 
+     * Returns the value the formatter uses if a cell 
+     * in the column is null.
+     * 
+     * @return   string
+     * @access   public
+     */
+    function getMissingValue()
+    {
+        return $this->missingValue;
+    }
+    
+    /**
+     * Set missing value
+     * 
+     * Defines the value the formatter uses if a cell 
+     * in the column is null.
+     * 
+     * @param   string  $str    The value the formatter will output
+     * @access   public
+     */    
+    function setMissingValue($str)
+    {
+        $this->missingValue = $str;
+    }
+    
+    /**
      * Set Formatter Callback
      *
      * Define a formatting callback function with optional arguments for 
@@ -395,9 +443,14 @@ class Structures_DataGrid_Column
      */
     function _autoFormatter($data, $params)
     {
+        if (!isset($data['record'][$data['fieldName']]) &&
+            isset($this->missingValue)
+        ) {
+            return $this->missingValue;
+        }
         $value = $data['record'][$data['fieldName']];
         $type = $params[0];
-        
+
         switch ($type) {
             case 'dateFromTimestamp':
                 $format = $params[1];
